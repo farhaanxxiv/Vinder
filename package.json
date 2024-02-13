@@ -2,7 +2,6 @@
   "name": "vinder",
   "version": "09.02.2024",
   "private": true,
-  "homepage": "https://vinder-match.github.io/vinder",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
