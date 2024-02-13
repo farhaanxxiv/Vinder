@@ -12,5 +12,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color       : theme('colors.black');
   color                  : white;
-  font-family: 'Urbanist',sans-serif;
+  font-family            : 'Urbanist', sans-serif;
+}
+
+b {
+  @apply block;
+}
+
+input,
+select {
+  @apply bg-transparent py-1 px-1 border-gray-500 border-b text-white;
+}
+
+option {
+  @apply text-[black] hover:bg-[#aaaaaa];
+
+}
+
+button {
+  @apply shadow-[1px_1px_white] hover:shadow-none hover:bg-white hover:text-[black] transition-all bg-transparent py-1 px-5 rounded-2xl border-gray-500 border;
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+section {
+  padding: 0 15%;
+}
+
+img.logo {
+  filter: invert(1) hue-rotate(183deg);
+}
+
+input {
+  display: block;
 }
