@@ -31,7 +31,7 @@ export const auth = {
             window.location.href = '/details'
         } else {
             firebaseAuth.signOut()
-            notifyError('Please Verify Your E-Mail ')
+            notifyError('Verification mail has already been sent to ' +email)
 
         }
     },

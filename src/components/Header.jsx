@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
+import { useAuth } from "../context/AuthProvider"
 
 const Header = () => {
+
+    const { isLoggedIn } = useAuth()
 
     return (
 
@@ -11,7 +14,7 @@ const Header = () => {
             <Link to='/'>
 
                 <div className='text-center'>
-                    <h2 style={{ fontFamily: 'monospace' }} className="text-5xl">vinder</h2>
+                    <h2 style={{ fontFamily: 'monospace' }} className="text-5xl">vinderr</h2>
                     <p>Tinder For VBIT</p>
                 </div>
             </Link>

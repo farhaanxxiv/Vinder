@@ -50,7 +50,7 @@ const Home = () => {
             <div className='text-center  py-12'>
                 <img className='w-[60%] md:w-[20%] mx-auto ar-square scale-[0.8] invert' src="/images/anonymous.png" alt="" />
                 <h2 className='font-bold text-2xl'>Anonymous</h2>
-                <p className='mt-4'>When you enter your crush's roll no. on our website, it's completely <b>safe</b>. No one can view it except for you.</p>
+                <p className='mt-4'>When you enter your crush's roll no. on our website, it's completely <span className='font-semibold'>safe</span>. No one can view it except for you.</p>
             </div>
             <div className='mt-12'>
                 <div className=' gap-12'>
