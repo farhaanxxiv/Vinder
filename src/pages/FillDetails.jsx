@@ -29,7 +29,7 @@ const FillDetails = () => {
     return (
 
         <>
-            <section className='w-[80%] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
+            <section className=''>
                 <h2 className='text-xl'>The app has recognised your Branch & Year from your roll No.</h2>
                 <p className='text-xl'> The app would also like to know your section for better results</p>
                 <form className='mt-8' onSubmit={formik.handleSubmit}>

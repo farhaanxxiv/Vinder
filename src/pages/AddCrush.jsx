@@ -2,11 +2,15 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { auth } from '../scripts/authentication';
 import { user } from '../scripts/user';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const AddCrush = () => {
 
     const [addRollno, setRollno] = useState(true)
+
+    useEffect(() => {
+
+    }, [addRollno])
 
     const rollNoSchema = Yup.object().shape({
         rollno: Yup.string().matches('^(20|21|22|23)[0-9A-Za-z]{8}$', 'Please Enter A Valid Roll No')
@@ -14,18 +18,24 @@ const AddCrush = () => {
 
 
     const nameFormSchema = Yup.object().shape({
-        name: Yup.string().required('Please Enter A Name')
+        name: Yup.string().required('Please Enter Their Name'),
+        year: Yup.string().required('Please Enter Their Year'),
+        branch: Yup.string().required('Please Enter Their Branch'),
+        section: Yup.string().required('Please Enter Their Section')
     });
 
     const rollNoForm = useFormik({
         initialValues: {
             rollno: '',
         },
+        validationSchema: rollNoSchema,
+
         onSubmit: values => {
             console.log(JSON.stringify(values, null, 2));
             user.addCrush(values)
         }
     });
+    
     const nameForm = useFormik({
         initialValues: {
             name: '',
@@ -63,7 +73,7 @@ const AddCrush = () => {
                                 value={rollNoForm.values.rollno}
                             />
                             {rollNoForm.touched.rollno && rollNoForm.errors.rollno ? (
-                                <p className="text-red">{rollNoForm.errors.rollno}</p>
+                                <p className="text-[#db2e2e] text-xs">{rollNoForm.errors.rollno}</p>
                             ) : null}
 
 
@@ -71,7 +81,7 @@ const AddCrush = () => {
 
                         </form>
                         :
-                        <form onSubmit={nameForm.handleSubmit}  className='flex flex-col gap-3'>
+                        <form onSubmit={nameForm.handleSubmit} className='flex flex-col gap-3'>
 
                             <input
                                 placeholder="Crush's Name"
@@ -81,7 +91,9 @@ const AddCrush = () => {
                                 onChange={nameForm.handleChange}
                                 value={nameForm.values.name}
                             />
-
+                            {nameForm.touched.name && nameForm.errors.name ? (
+                                <p className="text-[#db2e2e] text-xs">{nameForm.errors.name}</p>
+                            ) : null}
                             <select name="year" id="year" onChange={nameForm.handleChange} value={nameForm.values.year}>
                                 <option value="" selected hidden>Year</option>
 
@@ -91,7 +103,9 @@ const AddCrush = () => {
                                 <option value="2023">2023</option>
 
                             </select>
-                        
+                            {nameForm.touched.year && nameForm.errors.year ? (
+                                <p className="text-[#db2e2e] text-xs">{nameForm.errors.year}</p>
+                            ) : null}
 
 
                             <select name="branch" id="branch" onChange={nameForm.handleChange} value={nameForm.values.branch}>
@@ -108,7 +122,9 @@ const AddCrush = () => {
                                 <option value="CSM">CSM</option>
                                 <option value="CSD">CSD</option>
                             </select>
-
+                            {nameForm.touched.branch && nameForm.errors.branch ? (
+                                <p className="text-[#db2e2e] text-xs">{nameForm.errors.branch}</p>
+                            ) : null}
 
                             <select name="section" id="section" onChange={nameForm.handleChange} value={nameForm.values.section}>
                                 <option value="" selected hidden>Section</option>
@@ -120,11 +136,11 @@ const AddCrush = () => {
                                 <option value="E">E</option>
 
                             </select>
-                     
+                            {nameForm.touched.section && nameForm.errors.section ? (
+                                <p className="text-[#db2e2e] text-xs">{nameForm.errors.section}</p>
+                            ) : null}
 
                             <button onClick={console.log(nameForm)} type="submit">Add Crush</button>
-                            <p className='text-xs mt-2'>*Add Section,Year & Branch for accurate results, as multiple people can have similar names</p>
-
                         </form>
                     }
                 </div>

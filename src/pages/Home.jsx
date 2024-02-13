@@ -4,14 +4,16 @@ import { auth } from '../scripts/authentication';
 import { useAuth } from '../context/AuthProvider';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect } from "react";
+import { user } from '../scripts/user';
 
 const Home = () => {
 
-  
+
 
     const SignupSchema = Yup.object().shape({
         mail: Yup.string().matches('^(20|21|22|23)[0-9A-Za-z]{8}@vbithyd\.ac\.in$', 'Please Match Mail')
     });
+    const { isLoggedIn } = useAuth()
 
     const formik = useFormik({
         initialValues: {
@@ -28,7 +30,7 @@ const Home = () => {
     });
     return (
         <section>
-  
+
             <div className='grid md:grid-cols-3 gap-x-12 gap-y-12'>
                 <div className='text-center'>
                     <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/01.svg" alt="" />
@@ -52,41 +54,53 @@ const Home = () => {
                 <h2 className='font-bold text-2xl'>Anonymous</h2>
                 <p className='mt-4'>When you enter your crush's roll no. on our website, it's completely <span className='font-semibold'>safe</span>. No one can view it except for you.</p>
             </div>
-            <div className='mt-12'>
-                <div className=' gap-12'>
-                    <h2 className='font-semibold text-center text-xl  my-auto'>Register/Login Here</h2>
+            {
+                !isLoggedIn ?
+                    <div className='mt-12'>
+                        <div className=' gap-12'>
+                            <h2 className='font-semibold text-center text-xl  my-auto'>Register/Login Here</h2>
 
-                    <form className='mt-8 w-full' onSubmit={formik.handleSubmit}>
-                        <div className="flex flex-col gap-8">
-                            <input
-                                id="mail"
-                                name="mail"
-                                type="email"
-                                placeholder='E-Mail'
-                                onChange={formik.handleChange}
-                                value={formik.values.mail}
-                            />
+                            <form className='mt-8 w-full' onSubmit={formik.handleSubmit}>
+                                <div className="flex flex-col gap-8">
+                                    <input
+                                        id="mail"
+                                        name="mail"
+                                        type="email"
+                                        placeholder='E-Mail'
+                                        onChange={formik.handleChange}
+                                        value={formik.values.mail}
+                                    />
 
 
-                            <input
-                                id="password"
-                                name="password"
-                                type="password"
-                                placeholder='Password'
+                                    <input
+                                        id="password"
+                                        name="password"
+                                        type="password"
+                                        placeholder='Password'
 
-                                onChange={formik.handleChange}
-                                value={formik.values.password}
-                            />
-                            {formik.touched.password && formik.errors.password ? (
-                                <p className="text-red">{formik.errors.password}</p>
-                            ) : null}
-                            <button onClick={console.log(formik)} type="submit">Submit</button>
+                                        onChange={formik.handleChange}
+                                        value={formik.values.password}
+                                    />
+                                    {formik.touched.password && formik.errors.password ? (
+                                        <p className="text-red">{formik.errors.password}</p>
+                                    ) : null}
+                                    <button onClick={console.log(formik)} type="submit">Submit</button>
+                                </div>
+
+                            </form>
                         </div>
+                    </div>
+                    : <>
+                        <h2>You Are Logged In As {auth.getUser().email}</h2>
+                        <Link to='/add-crush'>
+                            <button>
+                                Add Crush
+                            </button>
+                        </Link>
+                    </>
+            }
 
-                    </form>
-                </div>
-            </div>
-      
+
         </section>
     )
 }
