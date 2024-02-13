@@ -14,6 +14,7 @@ const Home = () => {
         mail: Yup.string().matches('^(20|21|22|23)[0-9A-Za-z]{8}@vbithyd\.ac\.in$', 'Please Match Mail')
     });
     const { isLoggedIn } = useAuth()
+    const userEmail = auth.getUser() !=null ? auth.getUser().email : 'NULL'
 
     const formik = useFormik({
         initialValues: {
@@ -91,7 +92,7 @@ const Home = () => {
                         </div>
                     </div>
                     : <>
-                        <h2>You Are Logged In As {auth.getUser().email}</h2>
+                        <h2>You Are Logged In As {userEmail}</h2>
                         <Link to='/add-crush'>
                             <button>
                                 Add Crush

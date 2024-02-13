@@ -1,4 +1,4 @@
-export const sections = {
+export const branchCodes = {
     '01': 'CIVIL',
     '02': 'EEE',
     '03': 'MECH',

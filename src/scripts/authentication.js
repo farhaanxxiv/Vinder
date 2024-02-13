@@ -8,6 +8,7 @@ export const auth = {
         try {
             const user = await createUserWithEmailAndPassword(firebaseAuth, email, password)
             await auth.createUserInFirestore(user)
+            firebaseAuth.signOut()
             await sendEmailVerification(user.user);
             notifySuccess('A Verification Mail Has Been Sent To ' + email)
 

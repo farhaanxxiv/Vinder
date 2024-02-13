@@ -49,7 +49,7 @@ const FillDetails = () => {
                     <br />
 
                     <button className='mt-8' onClick={console.log(formik)} type="submit">Next</button>
-                    <p className='text-xs mt-2'> *You can change this by logging in again</p>
+                    <p className='text-xs mt-2'> *You can change your section by logging in again</p>
 
 
                 </form>
