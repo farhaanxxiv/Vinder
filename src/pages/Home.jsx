@@ -67,7 +67,7 @@ const Home = () => {
                                         id="mail"
                                         name="mail"
                                         type="email"
-                                        placeholder='E-Mail'
+                                        placeholder='College E-Mail'
                                         onChange={formik.handleChange}
                                         value={formik.values.mail}
                                     />
