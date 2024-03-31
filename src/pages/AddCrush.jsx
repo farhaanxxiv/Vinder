@@ -14,6 +14,7 @@ const AddCrush = () => {
 
     const rollNoSchema = Yup.object().shape({
         rollno: Yup.string().matches('^(20|21|22|23)[0-9A-Za-z]{8}$', 'Please Enter A Valid Roll No')
+        .required('Please Enter Your Crush\'s Roll No')
     })
 
 
@@ -35,7 +36,7 @@ const AddCrush = () => {
             user.addCrush(values)
         }
     });
-    
+
     const nameForm = useFormik({
         initialValues: {
             name: '',
@@ -53,13 +54,13 @@ const AddCrush = () => {
     });
     return (
         <section className='py-16'>
-            <h2 className='text-xl'> Add Your Crush !!, just type in their RollNo. and click 'Add Crush'</h2>
-            <p className=''>It remains anonymous, no one will be able to read it.</p>
+            {/* <h2 className='text-xl'> Add Your Crush !!, just type in their RollNo. and click 'Add Crush'</h2> */}
+            <div className='sm:flex sm:grid-cols-2 gap-12'>
+                <h1 className='text-center text-2xl font-semibold mb-4'>Add Crush With</h1>
 
-            <div className='mt-8 sm:flex sm:grid-cols-2 gap-12'>
-                <div className='flex flex-col gap-3'>
-                    <button onClick={() => { setRollno(true) }}>Add By RollNo</button>
-                    <button onClick={() => { setRollno(false) }}>Add By Name</button>
+                <div className='flex md:flex-col gap-3 w-fit mx-auto'>
+                    <button onClick={() => { setRollno(true) }}>RollNo</button>
+                    <button onClick={() => { setRollno(false) }}>Name</button>
                 </div>
                 <div className='mt-8'>
                     {addRollno ?
@@ -140,9 +141,14 @@ const AddCrush = () => {
                                 <p className="text-[#db2e2e] text-xs">{nameForm.errors.section}</p>
                             ) : null}
 
+
                             <button onClick={console.log(nameForm)} type="submit">Add Crush</button>
+
                         </form>
+
                     }
+                    <p className='text-sm mt-4 text-gray-500'>*It remains anonymous, no one will be able to read it.</p>
+
                 </div>
             </div>
 

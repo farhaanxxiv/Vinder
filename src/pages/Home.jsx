@@ -92,9 +92,9 @@ const Home = () => {
                         </div>
                     </div>
                     : <>
-                        <h2>You Are Logged In As {userEmail}</h2>
-                        <Link to='/add-crush'>
-                            <button>
+                        <h2 className='text-2xl font-semibold text-center'>  You Are Logged In As <span className='text-pink'> {userEmail}</span></h2>
+                        <Link className='block mx-auto w-fit' to='/add-crush'>
+                            <button className='mt-4'>
                                 Add Crush
                             </button>
                         </Link>

@@ -30,7 +30,7 @@ option {
 }
 
 button {
-  @apply shadow-[1px_1px_white] hover:shadow-none hover:bg-white hover:text-[black] transition-all bg-transparent py-1 px-5 rounded-2xl border-gray-500 border;
+  @apply text-xl font-semibold shadow-[1px_1px_white] hover:shadow-none hover:bg-white hover:text-[black] transition-all bg-transparent py-1 px-8 rounded-3xl border-gray-500 border;
 
 }
 
