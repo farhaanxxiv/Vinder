@@ -7,21 +7,21 @@ const Header = () => {
 
     return (
 
-        <section className="py-6 flex justify-between gap-6 box-shadow-[] ">
-            <div>
+        <div className="rounded-lg bg-pink text-black fixed top-4 w-[95%] z-[9999] border border-black md:w-[60%]  left-1/2 -translate-x-1/2 py-0.5 px-1 flex justify-between gap-6 ">
 
-            </div>
-            <Link to='/'>
-
-                <div className='text-center'>
-                    <h2 style={{ fontFamily: 'monospace' }} className="text-5xl">vinderr</h2>
-                    <p>Tinder For VBIT</p>
+            <Link className="block" to='/'>
+                <div className="flex ">
+                    <img src="/logos/logo-pink.png" className="w-10 h-10 " />
+                    <div className='text-left my-auto h-fit'>
+                        <h2 className="text-xl font-semibold">vinderr</h2>
+                    </div>
                 </div>
             </Link>
-            <div className="h-fit my-auto">
+            <Link className="block my-auto " to='/'>
 
-            </div>
-        </section>
+                <p className="text-lg font-semibold mr-2">match now</p>
+            </Link>
+        </div>
     )
 }
 

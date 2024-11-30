@@ -5,16 +5,17 @@ import { useAuth } from '../context/AuthProvider';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect } from "react";
 import { user } from '../scripts/user';
+import { GiSpiderMask } from "react-icons/gi";
+import { GrDisabledOutline } from 'react-icons/gr';
 
 const Home = () => {
-
-
 
     const SignupSchema = Yup.object().shape({
         mail: Yup.string().matches('^(20|21|22|23)[0-9A-Za-z]{8}@vbithyd\.ac\.in$', 'Please Match Mail')
     });
+
     const { isLoggedIn } = useAuth()
-    const userEmail = auth.getUser() !=null ? auth.getUser().email : 'NULL'
+    const userEmail = auth.getUser() != null ? auth.getUser().email : 'NULL'
 
     const formik = useFormik({
         initialValues: {
@@ -29,80 +30,159 @@ const Home = () => {
             auth.getUID()
         }
     });
+
+    const gridStyle = {
+        backgroundColor: '#f7a3c7',
+        opacity: '1',
+        backgroundImage: 'linear-gradient(#000000 4px, transparent 4px), linear-gradient(to right, #000000 4px, #f7a3c7 4px)',
+        backgroundSize: '80px 80px'
+    };
+
+    const dottedStyle = {
+        backgroundColor: '#f7a3c7',
+        opacity: 1,
+        backgroundImage: 'radial-gradient(#000000 2px, transparent 2px), radial-gradient(#000000 2px, #f7a3c7 2px)',
+        backgroundSize: '80px 80px',
+        backgroundPosition: '0 0, 40px 40px',
+    };
+
+    const whiteDottedStyle = {
+        backgroundColor: '#ffffff',
+        opacity: 1,
+        backgroundImage: 'radial-gradient(#000000 2px, transparent 2px), radial-gradient(#000000 2px, #ffffff 2px)',
+        backgroundSize: '80px 80px',
+        backgroundPosition: '0 0, 40px 40px',
+    };
     return (
-        <section>
+        <>
 
-            <div className='grid md:grid-cols-3 gap-x-12 gap-y-12'>
-                <div className='text-center'>
-                    <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/01.svg" alt="" />
-                    <h2 className='font-bold text-2xl'>Sign-up For Vinder</h2>
-                    <p className='mt-4'>Welcome to Vinder ! You will need to sign-up using your college mail to explore Vinder.</p>
-                </div>
-                <div className='text-center'>
-                    <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/02.png" alt="" />
-                    <h2 className='font-bold text-2xl'>Enter Your Crush's Roll No</h2>
-                    <p className='mt-4'>After signining-up, you will be asked to enter your crush's rollno. for the system to check if 2 people have written each other's roll no</p>
-                </div>
-                <div className='text-center'>
-                    <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/03.png" alt="" />
-                    <h2 className='font-bold text-2xl'>Match Day !</h2>
-                    <p className='mt-4'>You can now Login & view if you are matched with someone 🙌🏻</p>
-                </div>
+            <section className=' text-black first'>
+                <div className='relative bg-pink p-4 md:p-8 md:pr-0 grid md:grid-cols-2 gap-y-8 rounded-lg '>
 
-            </div>
-            <div className='text-center  py-12'>
-                <img className='w-[60%] md:w-[20%] mx-auto ar-square scale-[0.8] invert' src="/images/anonymous.png" alt="" />
-                <h2 className='font-bold text-2xl'>Anonymous</h2>
-                <p className='mt-4'>When you enter your crush's roll no. on our website, it's completely <span className='font-semibold'>safe</span>. No one can view it except for you.</p>
-            </div>
-            {
-                !isLoggedIn ?
-                    <div className='mt-12'>
-                        <div className=' gap-12'>
-                            <h2 className='font-semibold text-center text-xl  my-auto'>Register/Login Here</h2>
+                    <div className='flex flex-col justify-between gap-y-4'>
 
-                            <form className='mt-8 w-full' onSubmit={formik.handleSubmit}>
-                                <div className="flex flex-col gap-8">
-                                    <input
-                                        id="mail"
-                                        name="mail"
-                                        type="email"
-                                        placeholder='College E-Mail'
-                                        onChange={formik.handleChange}
-                                        value={formik.values.mail}
-                                    />
-
-
-                                    <input
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        placeholder='Password'
-
-                                        onChange={formik.handleChange}
-                                        value={formik.values.password}
-                                    />
-                                    {formik.touched.password && formik.errors.password ? (
-                                        <p className="text-red">{formik.errors.password}</p>
-                                    ) : null}
-                                    <button onClick={console.log(formik)} type="submit">Submit</button>
-                                </div>
-
-                            </form>
+                        <div>
+                            <h1 className='font-extrabold text-4xl md:text-5xl lg:text-6xl'>
+                                RollNo, <br />Match,<br /> Connect.<br />
+                            </h1>
+                            {/* <p className='mt-4 text-lg font-semibold lg:ml-2'></p> */}
                         </div>
+                        <p className='text-lg font-bold flex gap-x-1'>Exclusive for Students of VBIT</p>
+
+                        {/* <p className='text-lg font-bold flex gap-x-1'>Match Anonymously <GiSpiderMask className='my-auto' size={20} fill='black' /> </p> */}
+
                     </div>
-                    : <>
-                        <h2 className='text-2xl font-semibold text-center'>  You Are Logged In As <span className='text-pink'> {userEmail}</span></h2>
-                        <Link className='block mx-auto w-fit' to='/add-crush'>
-                            <button className='mt-4'>
-                                Add Crush
-                            </button>
-                        </Link>
-                    </>
-            }
+                    <div className=' flex flex-col gap-y-6 justify-between'>
+                        <img className='translate-x-4 md:translate-x-0 lg:-translate-y-12  w-full' src="/images/iphone-hero.png" alt="" />
+                        <h2 className='ml-auto  font-bold md:pr-8  text-2xl w-fit'>
+                            Made By Students, For the Students.
+                        </h2>
+                    </div>
+                </div>
+
+            </section>
+            <section>
 
 
-        </section>
+                <h2 className='text-4xl md:text-5xl text-center font-semibold'>How Does <span className='text-pink '>vinder</span> work? </h2>
+                <div className='mt-12 space-y-8 '>
+                    {/* bg-[#fff4f7] */}
+                    <div className=' top-12 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8 '>
+                        <div className='flex flex-col gap-y-6 justify-between'>
+                            <div className='bg-black  border-2 border-white w-fit p-2 aspect-square rounded-lg  '><span className='block font-semibold text-4xl'>01</span></div>
+                            <div>
+                                <h2 className='font-bold text-4xl text-pink'>Sign-up For Vinder</h2>
+                                <p className='mt-4 font-semibold'>Welcome to Vinder ! You will need to sign-up using your college mail to explore Vinder.</p>
+                            </div>
+                        </div>
+                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/01.svg" alt="" />
+                    </div>
+                    <div className=' top-24 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
+                        <div className='flex flex-col gap-y-6 justify-between'>
+                            <div className='bg-black  border-2 border-white w-fit p-2 aspect-square rounded-lg  '><span className='block font-semibold text-4xl'>02</span></div>
+                            <div>
+                                <h2 className='font-bold text-4xl text-pink'>Enter Your Crush's Roll No</h2>
+                                <p className='mt-4 font-semibold'>After signining-up, you will be asked to enter your crush's rollno. for the system to check if 2 people have written each other's roll no</p>
+                            </div>
+                        </div>
+                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/02.png" alt="" />
+                    </div>
+                    <div className=' top-12 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
+                        <div className='flex flex-col gap-y-6 justify-between'>
+                            <div className='bg-black  border-2 border-white w-fit p-2 aspect-square rounded-lg  '><span className='block font-semibold text-4xl'>03</span></div>
+                            <div>
+                                <h2 className='font-bold text-4xl text-pink'>Match Day !</h2>
+                                <p className='mt-4 font-semibold'>You can now Login & view if you are matched with someone 🙌🏻</p>
+                            </div>
+                        </div>
+                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/03.png" alt="" />
+                    </div>
+
+
+                </div>
+            </section>
+
+            <section>
+
+                <div className='relative  py-12 bg-white text-black rounded-xl px-8 grid md:grid-cols-[40%_60%]'>
+                    <div style={whiteDottedStyle} className="absolute top-0 left-0 right-0 bottom-0 z-0 !opacity-15 "></div>
+
+                    <h2 className='relative z-20 text-4xl md:text-5xl font-bold flex gap-x-1 my-auto text-black'>Match Anonymously </h2>
+                    <p className='relative z-20 mt-4 font-semibold text-md md:text-xl'>When you enter your crush's roll no. on our website, it's completely <span className='font-semibold'>safe</span>. No one can view it except for you.</p>
+                </div>
+            </section>
+            <section >
+                {
+                    !isLoggedIn ?
+                        <div className='mt-12 relative bg-black rounded-xl md:p-8 text-pink'>
+                            <div  className="absolute top-0 left-0 right-0 bottom-0 z-0 !opacity-30"></div>
+                            <div className='grid md:grid-cols-2 gap-6 md:gap-12 z-20 relative'>
+                                <h2 className='font-semibold my-auto text-3xl md:text-4xl'>Register/Login Here</h2>
+
+                                <form className='w-full' onSubmit={formik.handleSubmit}>
+                                    <div className="space-y-6 md:space-y-8">
+                                        <input
+                                            id="mail"
+                                            name="mail"
+                                            type="email"
+                                            placeholder='College E-Mail'
+                                            onChange={formik.handleChange}
+                                            value={formik.values.mail}
+                                        />
+
+
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type="password"
+                                            placeholder='Password'
+
+                                            onChange={formik.handleChange}
+                                            value={formik.values.password}
+                                        />
+                                        {formik.touched.password && formik.errors.password ? (
+                                            <p className="text-red">{formik.errors.password}</p>
+                                        ) : null}
+                                        <button className='black' onClick={console.log(formik)} type="submit">Submit</button>
+                                        {/* <p className='text-sm font-semibold'>Your Email will only be stored for matching*</p> */}
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        : <>
+                            <h2 className='text-2xl font-semibold text-center'>  You Are Logged In As <span className='text-pink'> {userEmail}</span></h2>
+                            <Link className='block mx-auto w-fit' to='/add-crush'>
+                                <button className='mt-4'>
+                                    Add Crush
+                                </button>
+                            </Link>
+                        </>
+                }
+
+
+            </section>
+        </>
     )
 }
 

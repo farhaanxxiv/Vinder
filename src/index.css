@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,23 +14,39 @@ body {
   font-family            : 'Urbanist', sans-serif;
 }
 
+
+@font-face {
+  font-family: "Roobert"; 
+  src: url("./fonts/Roobert.ttf") format("truetype");
+}
+
+*{
+  font-family: 'Roobert', sans-serif
+}
+
 b {
   @apply block;
 }
 
 input,
 select {
-  @apply bg-transparent py-1 px-1 border-gray-500 border-b text-white;
+  @apply w-full bg-transparent py-1 px-2 border border-[#505050] text-white placeholder-[#505050] placeholder:font-semibold rounded-md ;
 }
 
 option {
   @apply text-[black] hover:bg-[#aaaaaa];
-
 }
 
 button {
-  @apply text-xl font-semibold shadow-[1px_1px_white] hover:shadow-none hover:bg-white hover:text-[black] transition-all bg-transparent py-1 px-8 rounded-3xl border-gray-500 border;
+  @apply w-full text-xl font-semibold  hover:shadow-none hover:bg-white hover:text-[black] transition-all bg-transparent py-1 px-8 rounded-md ;
+}
 
+button.pink {
+  @apply  bg-pink hover:bg-black hover:text-[black] ;
+}
+
+button.black {
+  @apply  bg-black hover:bg-pink border-2 border-[#505050] hover:text-[black] text-white;
 }
 
 input:-webkit-autofill,
@@ -44,7 +59,18 @@ input[data-autocompleted] {
 }
 
 section {
-  padding: 0 15%;
+  padding: 3rem 15%;
+}
+
+section.first{
+  margin-top: 4rem;
+}
+
+
+@media only screen and (max-width: 991px) {
+  section {
+    padding: 3rem 8%;
+  }
 }
 
 img.logo {
