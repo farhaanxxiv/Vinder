@@ -17,10 +17,10 @@ const Header = () => {
                     </div>
                 </div>
             </Link>
-            <Link className="block my-auto " to='/'>
+            <a className="block my-auto " href='#home-login'>
 
                 <p className="text-lg font-semibold mr-2">match now</p>
-            </Link>
+            </a>
         </div>
     )
 }

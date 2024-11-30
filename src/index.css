@@ -20,6 +20,10 @@ body {
   src: url("./fonts/Roobert.ttf") format("truetype");
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 *{
   font-family: 'Roobert', sans-serif
 }
@@ -42,7 +46,7 @@ button {
 }
 
 button.pink {
-  @apply  bg-pink hover:bg-black hover:text-[black] ;
+  @apply  bg-pink text-black hover:bg-black hover:text-[white] border-2 border-pink ;
 }
 
 button.black {

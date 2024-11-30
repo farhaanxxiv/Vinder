@@ -131,7 +131,8 @@ const Home = () => {
                     <p className='relative z-20 mt-4 font-semibold text-md md:text-xl'>When you enter your crush's roll no. on our website, it's completely <span className='font-semibold'>safe</span>. No one can view it except for you.</p>
                 </div>
             </section>
-            <section > 
+            <section className='relative'>
+                <div id='home-login' className="absolute bottom-full"></div> 
                 {
                     !isLoggedIn ?
                         <div className='mt-12 relative bg-black rounded-xl md:p-8 text-pink'>
@@ -173,7 +174,7 @@ const Home = () => {
                         : <>
                             <h2 className='text-2xl font-semibold text-center'>  You Are Logged In As <span className='text-pink'> {userEmail}</span></h2>
                             <Link className='block mx-auto w-fit' to='/add-crush'>
-                                <button className='mt-4'>
+                                <button className='pink mt-4'>
                                     Add Crush
                                 </button>
                             </Link>
