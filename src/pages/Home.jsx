@@ -62,19 +62,19 @@ const Home = () => {
                     <div className='flex flex-col justify-between gap-y-4'>
 
                         <div>
-                            <h1 className='font-extrabold text-4xl md:text-5xl lg:text-6xl'>
+                            <h1 className='font-bold text-4xl md:text-5xl lg:text-6xl'>
                                 RollNo, <br />Match,<br /> Connect.<br />
                             </h1>
                             {/* <p className='mt-4 text-lg font-semibold lg:ml-2'></p> */}
                         </div>
-                        <p className='text-lg font-bold flex gap-x-1'>Exclusive for Students of VBIT</p>
+                        <p className='text-lg font-semibold flex gap-x-1'>Exclusive for Students of VBIT</p>
 
                         {/* <p className='text-lg font-bold flex gap-x-1'>Match Anonymously <GiSpiderMask className='my-auto' size={20} fill='black' /> </p> */}
 
                     </div>
                     <div className=' flex flex-col gap-y-6 justify-between'>
                         <img className='translate-x-4 md:translate-x-0 lg:-translate-y-12  w-full' src="/images/iphone-hero.png" alt="" />
-                        <h2 className='ml-auto  font-bold md:pr-8  text-2xl w-fit'>
+                        <h2 className='ml-auto  font-semibold md:pr-8  text-2xl w-fit'>
                             Made By Students, For the Students.
                         </h2>
                     </div>
@@ -82,49 +82,64 @@ const Home = () => {
 
             </section>
             <section>
-
-
-                <h2 className='text-4xl md:text-5xl text-center font-semibold'>How Does <span className='text-pink '>vinder</span> work? </h2>
-                <div className='mt-12 space-y-8 '>
-                    {/* bg-[#fff4f7] */}
-                    <div className=' top-12 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8 '>
+                <h2 className='text-4xl md:text-5xl text-center font-semibold'>
+                    How Does <span className='text-pink'>Vinder</span> Work?
+                </h2>
+                <div className='mt-12 space-y-8'>
+                    {/* First Step */}
+                    <div className='top-12 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
                         <div className='flex flex-col gap-y-6 justify-between'>
-                            <div className='bg-black  border-2 border-white w-fit p-2 aspect-square rounded-lg  '><span className='block font-semibold text-4xl'>01</span></div>
+                            <div className='bg-black border-2 border-white w-fit p-2 aspect-square rounded-lg'>
+                                <span className='block font-semibold text-4xl'>01</span>
+                            </div>
                             <div>
-                                <h2 className='font-bold text-4xl text-pink'>Sign-up For Vinder</h2>
-                                <p className='mt-4 font-semibold'>Welcome to Vinder ! You will need to sign-up using your college mail to explore Vinder.</p>
+                                <h2 className='font-semibold text-4xl text-pink'>Sign Up for Vinder</h2>
+                                <p className='mt-4 font-normal'>
+                                    Welcome to Vinder! To get started, sign up using your college email and unlock the full Vinder experience.
+                                </p>
                             </div>
                         </div>
-                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/01.svg" alt="" />
-                    </div>
-                    <div className=' top-24 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
-                        <div className='flex flex-col gap-y-6 justify-between'>
-                            <div className='bg-black  border-2 border-white w-fit p-2 aspect-square rounded-lg  '><span className='block font-semibold text-4xl'>02</span></div>
-                            <div>
-                                <h2 className='font-bold text-4xl text-pink'>Enter Your Crush's Roll No</h2>
-                                <p className='mt-4 font-semibold'>After signining-up, you will be asked to enter your crush's rollno. for the system to check if 2 people have written each other's roll no</p>
-                            </div>
-                        </div>
-                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/02.png" alt="" />
-                    </div>
-                    <div className=' top-12 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
-                        <div className='flex flex-col gap-y-6 justify-between'>
-                            <div className='bg-black  border-2 border-white w-fit p-2 aspect-square rounded-lg  '><span className='block font-semibold text-4xl'>03</span></div>
-                            <div>
-                                <h2 className='font-bold text-4xl text-pink'>Match Day !</h2>
-                                <p className='mt-4 font-semibold'>You can now Login & view if you are matched with someone 🙌🏻</p>
-                            </div>
-                        </div>
-                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/03.png" alt="" />
+                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/01.svg" alt="Sign-up process" />
                     </div>
 
+                    {/* Second Step */}
+                    <div className='top-24 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
+                        <div className='flex flex-col gap-y-6 justify-between'>
+                            <div className='bg-black border-2 border-white w-fit p-2 aspect-square rounded-lg'>
+                                <span className='block font-semibold text-4xl'>02</span>
+                            </div>
+                            <div>
+                                <h2 className='font-semibold text-4xl text-pink'>Enter Your Crush's Roll Number</h2>
+                                <p className='mt-4 font-normal'>
+                                    After signing up, enter your crush's roll number. The system will check if both of you have entered each other's roll number for a match.
+                                </p>
+                            </div>
+                        </div>
+                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/02.png" alt="Enter crush's roll number" />
+                    </div>
 
+                    {/* Third Step */}
+                    <div className='top-12 grid md:grid-cols-2 gap-y-6 bg-black text-white rounded-xl p-0 md:p-8'>
+                        <div className='flex flex-col gap-y-6 justify-between'>
+                            <div className='bg-black border-2 border-white w-fit p-2 aspect-square rounded-lg'>
+                                <span className='block font-semibold text-4xl'>03</span>
+                            </div>
+                            <div>
+                                <h2 className='font-semibold text-4xl text-pink'>Match Day!</h2>
+                                <p className='mt-4 font-normal'>
+                                    It’s finally time! Log in and see if you’ve matched with someone 🙌🏻
+                                </p>
+                            </div>
+                        </div>
+                        <img className='w-[80%] mx-auto ar-square scale-[0.8]' src="/images/03.png" alt="Match day excitement" />
+                    </div>
                 </div>
             </section>
 
+
             <section>
 
-                <div className='relative  py-12 bg-white text-black rounded-xl px-8 grid md:grid-cols-[40%_60%]'>
+                <div className='relative  py-12 bg-white text-black rounded-xl px-8 grid md:grid-cols-2'>
                     <div style={whiteDottedStyle} className="absolute top-0 left-0 right-0 bottom-0 z-0 !opacity-15 "></div>
 
                     <h2 className='relative z-20 text-4xl md:text-5xl font-bold flex gap-x-1 my-auto text-black'>Match Anonymously </h2>
@@ -132,14 +147,14 @@ const Home = () => {
                 </div>
             </section>
             <section className='relative'>
-                <div id='home-login' className="absolute bottom-full"></div> 
+                <div id='home-login' className="absolute bottom-full"></div>
                 {
                     !isLoggedIn ?
                         <div className='mt-12 relative bg-black rounded-xl md:p-8 text-pink'>
-                            <div  className="absolute top-0 left-0 right-0 bottom-0 z-0 !opacity-30"></div>
+                            <div className="absolute top-0 left-0 right-0 bottom-0 z-0 !opacity-30"></div>
                             <div className='grid md:grid-cols-2 gap-6 md:gap-12 z-20 relative'>
                                 <h2 className='font-semibold my-auto text-3xl md:text-4xl'>Register/Login Here</h2>
- 
+
                                 <form className='w-full' onSubmit={formik.handleSubmit}>
                                     <div className="space-y-6 md:space-y-8">
                                         <input
