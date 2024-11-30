@@ -15,7 +15,7 @@ import { getAuth } from "firebase/auth";
 //     measurementId: "G-R04LRT7ED1"
 //   };
 //   console.log(JSON.stringify(firebaseConfig))
-console.log()
+console.log(process.env.REACT_APP_FIREBASE_CONFIG)
 const firebaseConfig = JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG)
 
 const app = initializeApp(firebaseConfig);
