@@ -17,6 +17,8 @@ import { getAuth } from "firebase/auth";
 //   console.log(JSON.stringify(firebaseConfig))
 console.log(process.env.REACT_APP_FIREBASE_CONFIG)
 console.log(typeof process.env.REACT_APP_FIREBASE_CONFIG)
+console.log(JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG))
+
 
 const firebaseConfig = process.env.REACT_APP_FIREBASE_CONFIG
 
