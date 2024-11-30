@@ -131,14 +131,14 @@ const Home = () => {
                     <p className='relative z-20 mt-4 font-semibold text-md md:text-xl'>When you enter your crush's roll no. on our website, it's completely <span className='font-semibold'>safe</span>. No one can view it except for you.</p>
                 </div>
             </section>
-            <section >
+            <section > 
                 {
                     !isLoggedIn ?
                         <div className='mt-12 relative bg-black rounded-xl md:p-8 text-pink'>
                             <div  className="absolute top-0 left-0 right-0 bottom-0 z-0 !opacity-30"></div>
                             <div className='grid md:grid-cols-2 gap-6 md:gap-12 z-20 relative'>
                                 <h2 className='font-semibold my-auto text-3xl md:text-4xl'>Register/Login Here</h2>
-
+ 
                                 <form className='w-full' onSubmit={formik.handleSubmit}>
                                     <div className="space-y-6 md:space-y-8">
                                         <input
