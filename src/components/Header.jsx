@@ -11,7 +11,7 @@ const Header = () => {
 
             <Link className="block" to='/'>
                 <div className="flex ">
-                    <img src="/logos/logo-pink.png" className="w-10 h-10 " />
+                    <img src="/logos/logo-pink-black.png" className="w-10 h-10 " />
                     <div className='text-left my-auto h-fit'>
                         <h2 className="text-xl font-semibold">vinderr</h2>
                     </div>

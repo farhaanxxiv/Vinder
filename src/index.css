@@ -11,6 +11,8 @@ body {
   /* -webkit-font-smoothing : antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
   background-color       : theme('colors.black');
+  /* background-color       :#171717; */
+
   color                  : white;
 }
 

@@ -15,7 +15,6 @@ export const auth = {
         } catch (e) {
             console.log(e.code)
             if (e.code == 'auth/email-already-in-use') {
-                console.log('hi')
                 auth.signInUser(email, password)
 
             }
@@ -32,14 +31,14 @@ export const auth = {
             window.location.href = '/details'
         } else {
             firebaseAuth.signOut()
-            notifyError('Verification mail has already been sent to ' +email)
+            notifyError('Verification mail has already been sent to ' + email)
 
         }
     },
 
 
     getUser: () => {
-        const user =  firebaseAuth.currentUser
+        const user = firebaseAuth.currentUser
         console.log(user)
         return user
     },
