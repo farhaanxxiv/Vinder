@@ -73,7 +73,7 @@ const Home = () => {
 
                     </div>
                     <div className=' flex flex-col gap-y-6 justify-between'>
-                        <img className='translate-x-4 md:translate-x-0 lg:-translate-y-12  w-full' src="/images/iphone-hero.png" alt="" />
+                        <img className='translate-x-4 md:translate-x-0 lg:-translate-y-12  w-full' src="/images/iphone-hero.webp" alt="" />
                         <h2 className='mx-auto md:mr-0  font-semibold md:pr-8  text-base md:text-lg w-fit'>
                             Made By Students, For the Students.
                         </h2>
